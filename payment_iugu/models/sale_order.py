@@ -13,7 +13,6 @@ except ImportError:
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
-    @api.multi
     def action_cancel(self):
         res = super(SaleOrder, self).action_cancel()
         for order in self:

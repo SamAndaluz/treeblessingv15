@@ -3,12 +3,11 @@
     <data noupdate="1">
         <record id="payment_acquirer_iugu" model="payment.acquirer">
             <field name="name">Iugu</field>
-            <field name="image" type="base64" file="payment_iugu/static/description/icon.png"/>
+            <field name="image_128" type="base64" file="payment_iugu/static/description/icon.png"/>
             <field name="provider">iugu</field>
             <field name="company_id" ref="base.main_company"/>
-            <field name="view_template_id" ref="iugu_boleto_button"/>
-            <field name="environment">test</field>
-            <field name="website_published" eval="True"/>
+            <field name="redirect_form_view_id" ref="iugu_boleto_button"/>
+            <field name="state">test</field>
             <field name="pre_msg">
                 <![CDATA[ <p>Você vai ser redirecionado ao site da IUGU para capturar os dados de pagamento.</p> ]]>
             </field>

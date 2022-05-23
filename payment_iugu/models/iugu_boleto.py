@@ -23,13 +23,12 @@ class IuguBoleto(models.Model):
         base_url = self.env["ir.config_parameter"].get_param("web.base.url")
         return "%s%s" % (base_url, "/payment/process")
 
-    provider = fields.Selection(selection_add=[("iugu", "Iugu")])
+    provider = fields.Selection(selection_add=[("iugu", "Iugu")], ondelete={'iugu': 'set default'})
     iugu_api_key = fields.Char("Iugu Api Token")
     return_url = fields.Char(
         string="Url de Retorno", default=_default_return_url, size=300
     )
 
-    @api.multi
     def iugu_form_generate_values(self, values):
         """ Função para gerar HTML POST do Iugu """
         base_url = (
@@ -107,7 +106,6 @@ class TransactionIugu(models.Model):
         tx = self.search([("acquirer_reference", "=", acquirer_reference)])
         return tx[0]
 
-    @api.multi
     def _iugu_form_validate(self, data):
         status = data.get("data[status]")
 

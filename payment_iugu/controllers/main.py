@@ -17,8 +17,7 @@ class IuguController(http.Controller):
         return "<status>OK</status>"
 
     @http.route(
-        '/iugu/checkout/redirect', type='http',
-        auth='none', methods=['GET', 'POST'])
+        '/iugu/checkout/redirect', type='http', auth='none', methods=['GET', 'POST'])
     def iugu_checkout_redirect(self, **post):
         post = post
         if 'secure_url' in post:
