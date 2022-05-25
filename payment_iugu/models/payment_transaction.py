@@ -83,7 +83,7 @@ class PaymentTransaction(models.Model):
 
 
     def _get_tx_from_feedback_data(self, provider, data):
-        """ Override of payment to find the transaction based on Mollie data.
+        """ Override of payment to find the transaction based on Iugu data.
 
         :param str provider: The provider of the acquirer that handled the transaction
         :param dict data: The feedback data sent by the provider
