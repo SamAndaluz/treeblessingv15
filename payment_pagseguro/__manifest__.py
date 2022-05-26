@@ -9,7 +9,7 @@
     'price': '40',
     'currency': 'EUR',
     'summary': 'Payment Acquirer: Pagseguro Implementation',
-    'version': '0.1',
+    'version': '15.0.1.0.0',
     'description': """Pagseguro Payment Acquirer""",
     'depends': ['payment'],
     'images': ['static/description/payment_pagseguro.jpeg'],
@@ -18,6 +18,10 @@
         'views/payment_views.xml',
         'data/payment_acquirer_data.xml',
     ],
+    'external_dependencies': {
+        'python': ['pagseguro'],
+    },
+
     'installable': True,
     'auto_install': False,
 }
