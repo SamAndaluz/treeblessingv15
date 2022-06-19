@@ -4,13 +4,14 @@
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
 <odoo>
 
-    <report
-        id="delivery_correios_plp_report"
-        string="Impressão PLP"
-        model="delivery.correios.postagem.plp"
-        report_type="qweb-pdf"
-        file="delivery_correios.main_template_plp_report"
-        name="delivery_correios.main_template_plp_report" />
+    <record id="delivery_correios_plp_report" model="ir.actions.report">
+            <field name="name">Impressão PLP</field>
+            <field name="model">delivery.correios.postagem.plp</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">delivery_correios.main_template_plp_report</field>
+            <field name="report_file">delivery_correios.main_template_plp_report</field>
+            <field name="print_report_name">'Impressão PLP'</field>
+        </record>
 
     <template id="template_plp_report">
         <div class="page">

@@ -21,10 +21,10 @@ class DeliveryCarrier(models.Model):
     cartao_postagem = fields.Char(
         string=u"Número do cartão de Postagem", size=20
     )
-
-    delivery_type = fields.Selection(
-        selection_add=[("correios", u"Correios")]
-    )
+    delivery_type = fields.Selection(selection_add=[('correios', u"Correios")],
+                                     ondelete={'correios': lambda recs:
+                                     recs.write({'delivery_type': 'fixed',
+                                                 'fixed_price': 0})})
     # Type without contract
     service_type = fields.Selection(
         [
@@ -234,9 +234,9 @@ com o Correio",
             }
 
     def _get_correios_tracking_ref(self, picking):
-        cnpj_empresa = re.sub(
-            "[^0-9]", "", picking.company_id.cnpj_cpf or ""
-        )
+        # cnpj_empresa = re.sub(
+        #     "[^0-9]", "", picking.company_id.cnpj_cpf or ""
+        # )
 
         client = self.get_correio_sigep()
 
@@ -246,10 +246,10 @@ com o Correio",
             etiqueta = [
                 "PM{} BR".format(random.randrange(10000000, 99999999))
             ]
-        else:
-            etiqueta = client.solicita_etiquetas(
-                "C", cnpj_empresa, self.service_id.identifier, 1
-            )
+        # else:
+        #     etiqueta = client.solicita_etiquetas(
+        #         "C", cnpj_empresa, self.service_id.identifier, 1
+        #     )
         if len(etiqueta) > 0:
             digits = client.gera_digito_verificador_etiquetas(etiqueta)
             return etiqueta[0].replace(" ", str(digits[0]))
@@ -386,7 +386,7 @@ com o Correio",
                 else:
                     messages.append(
                         "{0} - {1}".format(
-                            param.keys()[0], data.get("MsgErro")
+                            param[0][0], data.get("MsgErro")
                         )
                     )
 

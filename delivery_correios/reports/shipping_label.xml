@@ -17,15 +17,15 @@
         <field name="dpi">51</field>
     </record>
 
-    <report
-        id="delivery_correios_shipping_label"
-        string="Impressão de Etiquetas"
-        model="delivery.correios.postagem.plp"
-        report_type="qweb-pdf"
-        file="delivery_correios.main_template_shipping_label"
-        name="delivery_correios.main_template_shipping_label"
-        paperformat="paperformat_correios_shipping_label"
-        />
+     <record id="delivery_correios_shipping_label" model="ir.actions.report">
+            <field name="name">Impressão de Etiquetas</field>
+            <field name="model">delivery.correios.postagem.plp</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">delivery_correios.main_template_plp_report</field>
+            <field name="report_file">delivery_correios.main_template_shipping_label</field>
+            <field name="print_report_name">'Impressão de Etiquetas'</field>
+            <field name="paperformat_id" ref="delivery_correios.paperformat_correios_shipping_label"/>
+        </record>
 
     <template id="template_shipping_label">
         <div class="page" style="position: relative;">

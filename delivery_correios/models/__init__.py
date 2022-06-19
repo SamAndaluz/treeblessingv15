@@ -6,4 +6,4 @@ from . import product_template
 from . import correios
 from . import delivery
 from . import correio_sigep
-from . import product_packaging
+from . import stock_package_type

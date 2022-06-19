@@ -78,11 +78,9 @@ nIndicaCalculo=3&nCdEmpresa={nCdEmpresa}&sDsSenha={sDsSenha}".format(
 
         tree = ElementTree.fromstring(response.content)
 
-        data = tree.getchildren()[0]
-
         res = {}
 
-        for item in data.iter():
+        for item in tree.iter():
             res.update({item.tag: item.text})
 
         return res

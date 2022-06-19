@@ -3,7 +3,7 @@
     'summary': """Integração com os Correios""",
     'description': """Módulo para gerar etiquetas de rastreamento de \
 encomendas""",
-    'version': '12.0.1.0.0',
+    'version': '15.0.1.0.0',
     'category': 'Sale',
     'author': 'Trustcode',
     'license': 'Other OSI approved licence',
@@ -17,6 +17,7 @@ encomendas""",
     ],
     'data': [
         'security/ir.model.access.csv',
+        'data/delivery_correios_data.xml',
         'views/correios.xml',
         'views/delivery_carrier.xml',
         'views/sale_order.xml',
